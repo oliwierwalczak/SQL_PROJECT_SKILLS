@@ -8,4 +8,4 @@ GROUP BY skills_job_dim.skill_id, skills_dim.skills
 ORDER BY postings_number_by_skill DESC
 LIMIT 5;
 
---change1
+

@@ -13,3 +13,4 @@ WHERE job_title_short = 'Data Analyst' AND job_location = 'Anywhere' AND salary_
 ORDER BY salary_year_avg DESC
 LIMIT 10;
 
+SELECT AVG(salary_year_avg) FROM job_postings_fact;
