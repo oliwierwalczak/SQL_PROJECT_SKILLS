@@ -31,6 +31,8 @@ rest will be aded soon:)
 ## First Part (YouTube course queries)
 
 ### Query No. 1 - top 10 job offers with highest annual salary.
+
+I used filtering to count only job offers for data analysts in general, with remote type of work and having information about annual salary. To get top ten offers, I used 'ORDER BY' clause, 'DESC' to start from the highest salary and 'LIMIT 10' to get only 10 best offers. Additionally, I used 'LEFT JOIN' to join companies' names from COMPANY_DIM table.
 ```sql
 SELECT
     job_id,
@@ -48,7 +50,7 @@ LIMIT 10;
 ```
 Key findings: 
 - The best 10 job offers for Data Analysts working remotely by salary vary from 184 000.00$ to 650 000.00$, comparing to average 123 268.82$ for all job postings in the dataset. The numbers show that in 2023 having occupation as a data analyst / data scientist created very atractive income perspective, comparing to average index salary at 66 621.80$ in United States ([https://www.census.gov/library/publications/2024/demo/p60-282.html](https://www.census.gov/library/publications/2024/demo/p60-282.html)).
-- In the group of potential employers we see a set of companies from different areas, like telecommunication, high tech, finance and recruting 
+- In the group of potential employers we see a set of companies from different areas, like telecommunication, high tech, finance and recruitment. This is a proof that data analysts play key role in companies' performance, providing knowledge and skills essential to cope with huge ammount of data collected due to their operational processes.
 
 
 ### Query No. 2 - top 10 job offers - the most preferable skills.
