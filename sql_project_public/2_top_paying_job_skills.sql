@@ -29,3 +29,5 @@ ORDER BY skills_number_of_postings DESC;
 As you can see, throughout the top 10 job postings by salary, the most preferable 
 skill is knowing SQL, then python and tableau.
 */
+
+

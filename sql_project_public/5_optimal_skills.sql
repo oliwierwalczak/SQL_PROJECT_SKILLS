@@ -17,7 +17,7 @@ GROUP BY skills_dim.skills, skills_dim.skill_id
 
 SELECT skill_demand.skill_id, skill_demand.skills, average_salary_skill.average_salary, skill_demand.postings_number_by_skill
 FROM skill_demand 
-inner JOIN average_salary_skill USING (skill_id)
+INNER JOIN average_salary_skill USING (skill_id)
 WHERE postings_number_by_skill > 10
 ORDER BY average_salary DESC
 ;
