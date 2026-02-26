@@ -1,7 +1,7 @@
 # Introduction
 **Hello, my name is Oliwier Walczak and this is my very first project on GitHub connected with the business area I am interested into, which is data analytics/science.**
 
-**At first, I want to thank to Luke Barrouse, data analyst and content creator, who have prepared full course on YouTube [(course)](https://www.youtube.com/watch?v=7mz73uXD9DA&t=11766s) with needed materials, including raw data and videos where he shows step by step how to prepare complete data analytic project. I also want to thank Kelly Adams, the course producer.**
+**At first, I want to thank to Luke Barrouse, data analyst and content creator, who have prepared full course on YouTube [(course)](https://www.youtube.com/watch?v=7mz73uXD9DA&t=11766s) with needed materials, including raw data and videos where he shows step by step how to prepare complete data analytics project. I also want to thank to Kelly Adams, the course producer.**
 
 
 
@@ -16,9 +16,6 @@
 5. **Were skills with the highest average offered salary also the ones with highest frequency of appearing in job offers?**
 
 ## In the second part, I focused more on cases connected with one of my favourite data analytic tools - SQL.** 
-Questions I was looking forward to answear was:
-
-- In which country there was the highest (the smallest) number of offers containing SQL as a skill?
 
 rest will be aded soon:)
  
@@ -50,10 +47,12 @@ LIMIT 10;
 ```
 Key findings: 
 - The best 10 job offers for Data Analysts working remotely by salary vary from 184 000.00$ to 650 000.00$, comparing to average 123 268.82$ for all job postings in the dataset. The numbers show that in 2023 having occupation as a data analyst / data scientist created very atractive income perspective, comparing to average index salary at 66 621.80$ in United States ([https://www.census.gov/library/publications/2024/demo/p60-282.html](https://www.census.gov/library/publications/2024/demo/p60-282.html)).
-- In the group of potential employers we see a set of companies from different areas, like telecommunication, high tech, finance and recruitment. This is a proof that data analysts play key role in companies' performance, providing knowledge and skills essential to cope with huge ammount of data collected due to their operational processes.
+- In the group of potential employers we see a set of companies from different areas, like telecommunication, high tech, finance and recruitment. This is a proof that data analysts play key role in companies' performance, providing knowledge and skills essential to cope with huge amount of data collected due to their operational processes.
 
 
 ### Query No. 2 - top 10 job offers - the most preferable skills.
+
+I used query from previous task as a Common Table Expression (CTE) top_paying_jobs. Then I used it to create another CTE top_paying_skils, which I used to identify a list of expected skills in each top paying offer. Finally, I ran another query to count number of findings for each skill.
 
 ```sql
 WITH top_skills_table AS (
@@ -84,6 +83,8 @@ ORDER BY skills_number_of_postings DESC;
 ```
 
 ### Query No. 3 - most frequently demanded skills (overall).
+
+In task 3 I used data to investigate which skills are the most common across all job postings in our dataset. I focused on Data Analyst role and limited my investigate to those occupations that could be done anywhere. I combined job_postings_fact table with skills_job_dim and skills_dim, group them by skill name and skill id and counted number of offers with each skill. I limited my query to print only top 5 most common skills, which are SQL, EXCEL, PYTHON, TABLEAU, POWER BI.
 
 ```sql
 SELECT skills_job_dim.skill_id, skills_dim.skills, COUNT(skills_job_dim.job_id) AS postings_number_by_skill 
