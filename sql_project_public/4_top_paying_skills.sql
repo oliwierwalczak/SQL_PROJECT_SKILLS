@@ -8,5 +8,3 @@ GROUP BY skills_dim.skills
 ORDER BY average_salary DESC
 LIMIT 25;
 
-#SELECT * FROM job_postings_fact
-#limit 5;

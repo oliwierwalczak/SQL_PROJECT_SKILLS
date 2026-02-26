@@ -27,6 +27,9 @@ rest will be aded soon:)
 
 ## First Part (YouTube course queries)
 
+Want to check SQL code, you will find it there:
+[sql_project_public](/sql_project_public/)
+
 ### Query No. 1 - top 10 job offers with highest annual salary.
 
 I used filtering to count only job offers for data analysts in general, with remote type of work and having information about annual salary. To get top ten offers, I used 'ORDER BY' clause, 'DESC' to start from the highest salary and 'LIMIT 10' to get only 10 best offers. Additionally, I used 'LEFT JOIN' to join companies' names from COMPANY_DIM table.
@@ -82,9 +85,9 @@ GROUP BY skills
 ORDER BY skills_number_of_postings DESC;
 ```
 
-### Query No. 3 - most frequently demanded skills (overall).
+### Query No. 3 - most frequently demanded skills.
 
-In task 3 I used data to investigate which skills are the most common across all job postings in our dataset. I focused on Data Analyst role and limited my investigate to those occupations that could be done anywhere. I combined job_postings_fact table with skills_job_dim and skills_dim, group them by skill name and skill id and counted number of offers with each skill. I limited my query to print only top 5 most common skills, which are SQL, EXCEL, PYTHON, TABLEAU, POWER BI.
+In task 3 I used data to investigate which skills are the most common across all job postings in our dataset. I focused on Data Analyst role and limited my investigation to those occupations which could be done anywhere. I combined job_postings_fact table with skills_job_dim and skills_dim, group them by skill name and skill id and counted number of offers with each skill. I limited my query to print only top 5 most common skills, which are respectively SQL, EXCEL, PYTHON, TABLEAU, POWER BI (*here I did not include filter for annual salary to not be null*)
 
 ```sql
 SELECT skills_job_dim.skill_id, skills_dim.skills, COUNT(skills_job_dim.job_id) AS postings_number_by_skill 
@@ -99,6 +102,8 @@ LIMIT 5;
 
 ### Query No. 4 - highest average salary per skill.
 
+I used connection between 3 tables from previous tasks to check what are the average salaries per year among job offers (for Data Analysts working remotely) with different skills. I grouped them by skill name and counted average. Finally, I limited my query to 25 skills with highest average salary.    
+
 ```sql
 SELECT skills_dim.skills, ROUND(AVG(salary_year_avg), 0) AS average_salary
 FROM job_postings_fact
@@ -112,6 +117,8 @@ LIMIT 25;
 
 
 ### Query No. 5 - highest paying skills VS. most frequently demanded skills.
+
+In the last task in the course, I combined queries from tasks 3 and 4 (using CTEs) to compare the number of postings with each skill demanded with average annual salary connected with that skill. I used INNER JOIN to match number of offers and average salary for skill, using skill id. I limited my query to only those skills, which appeared in at least 10 offers. Finally I ordered all rows by average salary 
 
 ```sql
 WITH skill_demand AS (
@@ -141,10 +148,10 @@ ORDER BY average_salary DESC
 
 
 
-## Second Part (My own research - SQL)
+
+## Second Part (My own research - SQL) - will be added soon:)
 
 
-Want to check SQL code, you will find it there:
-[sql_project_public](/sql_project_public/)
+
 # What I have learned
 # *Conclusions*
