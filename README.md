@@ -55,7 +55,7 @@ Key findings:
 
 ### Query No. 2 - top 10 job offers - the most preferable skills.
 
-I used query from previous task as a Common Table Expression (CTE) top_paying_jobs. Then I used it to create another CTE top_paying_skils, which I used to identify a list of expected skills in each top paying offer. Finally, I ran another query to count number of findings for each skill.
+I used query from previous task as a Common Table Expression (CTE) top_paying_jobs. Then I used it to create another CTE top_paying_skills, which I used to identify a list of expected skills in each top paying offer. Finally, I ran another query to count number of findings for each skill.
 
 ```sql
 WITH top_skills_table AS (
@@ -87,7 +87,7 @@ ORDER BY skills_number_of_postings DESC;
 
 ### Query No. 3 - most frequently demanded skills.
 
-In task 3 I used data to investigate which skills are the most common across all job postings in our dataset. I focused on Data Analyst role and limited my investigation to those occupations which could be done anywhere. I combined job_postings_fact table with skills_job_dim and skills_dim, group them by skill name and skill id and counted number of offers with each skill. I limited my query to print only top 5 most common skills, which are respectively SQL, EXCEL, PYTHON, TABLEAU, POWER BI (*here I did not include filter for annual salary to not be null*)
+In task 3 I used data to investigate which skills are the most common. I focused on Data Analyst role and limited my investigation to those occupations which could be done anywhere. I combined job_postings_fact table with skills_job_dim and skills_dim, group them by skill name and skill id and counted number of offers with each skill. I limited my query to print only top 5 most common skills, which are respectively SQL, EXCEL, PYTHON, TABLEAU, POWER BI (*here I did not include filter for annual salary to not be null*)
 
 ```sql
 SELECT skills_job_dim.skill_id, skills_dim.skills, COUNT(skills_job_dim.job_id) AS postings_number_by_skill 
@@ -118,7 +118,7 @@ LIMIT 25;
 
 ### Query No. 5 - highest paying skills VS. most frequently demanded skills.
 
-In the last task in the course, I combined queries from tasks 3 and 4 (using CTEs) to compare the number of postings with each skill demanded with average annual salary connected with that skill. I used INNER JOIN to match number of offers and average salary for skill, using skill id. I limited my query to only those skills, which appeared in at least 10 offers. Finally I ordered all rows by average salary 
+In the last task in the course, I combined queries from tasks 3 and 4 (using CTEs) to compare the number of postings with each skill demanded with average annual salary connected with that skill. I used INNER JOIN to match number of offers and average salary for skill, using skill id. I limited my query to only those skills, which appeared in at least 10 offers. Finally I ordered all rows by average salary.
 
 ```sql
 WITH skill_demand AS (
